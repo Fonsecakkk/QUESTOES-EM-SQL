@@ -1,0 +1,310 @@
+
+CREATE TABLE livro(
+  id int NOT null PRIMARY KEY,
+  nome varchar(250),
+  valor float(5,2)
+  );
+  CREATE TABLE autor(
+    id INT NOT NULL PRIMARY KEY, 
+    idade int,
+    nome varchar(250),
+    salario float(5,2)
+    );
+    CREATE TABLE editora(
+      id INT NOT NULL PRIMARY KEY,
+      endereco varchar(250),
+      nome varchar(250),
+      preco float(5,2),
+      id_autor int, id_livro int,
+    FOREIGN KEY(id_autor) REFERENCES autor(id),
+    FOREIGN KEY(id_livro) REFERENCES livro(id)
+    );
+    INSERT INTO editora VALUES(1, 'João Pessoa', 'Sagah+', 50000, 1, 3);
+    INSERT INTO editora VALUES(1, 'Osorio de Paiva', 'Companhia das Letras', 6000, 1, 4);
+    INSERT INTO editora VALUES(1, 'Rua Carneiro de Mendonça', 'Dinamica', 500, 1, 5);
+    INSERT INTO editora VALUES(1, 'Senador Pompeu', 'Leitura', 10000, 2, 1);
+    INSERT INTO editora VALUES(1, 'João Pessoa', 'Editora Construir', 2500, 3, 3);
+    
+    INSERT INTO livro VALUES(1, 'Harry Potter', 355.50);
+    INSERT INTO livro VALUES(2, 'Diário de um Banana', 155.50);
+    INSERT INTO livro VALUES(3, 'Pequeno Príncipe', 55.50);
+    INSERT INTO livro VALUES(4, 'Anne com E', 100.50);
+    INSERT INTO livro VALUES(5, 'Fazendo Meu Filme', 45.50);
+    
+    SELECT *FROM livro;
+    
+    INSERT INTO autor VALUES(1, 45, 'J.K Rowling', 3550);
+    INSERT INTO autor VALUES(2, 60, 'Jeff Kinney', 1550);
+    INSERT INTO autor VALUES(3, 20, 'Antoine de Saint-Exupéry', 5550);
+    INSERT INTO autor VALUES(4, 35, 'L.M Montgomery', 1050);
+    INSERT INTO autor VALUES(5, 90, 'Paula Pimenta', 4550);
+
+CACHORRO
+
+CREATE TABLE cachorro(
+  id integer NOT NULL PRIMARY KEY,
+  nome varchar(250),
+  dono varchar(250),
+  altura float(5,2),
+  peso float(5,2),
+  idade integer(9),
+  raca varchar(5,2),
+  racao varchar(5,2),
+  cor varchar(5,2)
+  );
+  SELECT *FROM cachorro;
+  INSERT INTO cachorro VALUES(1,'Kleiton', 'Mateus', 8.5, 10.1, 8, 'chiuaua', 'wiskas', 'preto' );
+  INSERT INTO cachorro VALUES(2,'pitoca', 'Jose', 12.5, 23.1, 7, 'Pit Bull', 'wiskas', 'preto' );
+  INSERT INTO cachorro VALUES(3,'Max', 'Leo', 18.5, 13.1, 5, 'ChauChau', 'wiskas', 'preto' );
+  INSERT INTO cachorro VALUES(4,'Mel', 'Mendes', 7.5, 16.1, 2, 'Vira Lata', 'wiskas', 'preto' );
+  INSERT INTO cachorro VALUES(5,'Snoop Dog', 'Miguel', 18.5, 20.1, 1, 'Pug', 'wiskas', 'preto' );
+  INSERT INTO cachorro VALUES(6,'Scooby', 'Salsicha', 20.8, 20.1, 3, 'Border Cooler', 'wiskas', 'preto' );
+  INSERT INTO cachorro VALUES(7,'Salsicha', 'Laura', 16, 20.1, 18, 'Routi Valer', 'wiskas', 'preto' );
+  INSERT INTO cachorro VALUES(8,'Panelada', 'Paulo', 17.5, 19.1, 28, 'Shitzu', 'wiskas', 'preto' );
+  INSERT INTO cachorro VALUES(9,'Jasmine', 'Clara', 12.5, 18.1, 13, 'Pastor Alemão', 'wiskas', 'preto' );
+  INSERT INTO cachorro VALUES(10,'Paçoca', 'Antoin', 15.5, 12.1, 58, 'Golden', 'wiskas', 'preto' );
+  
+  UPDATE cachorro SET dono = 'Paulo' WHERE id = 4;
+  UPDATE cachorro SET dono = 'Clara Castelo' WHERE id = 7;
+  UPDATE cachorro SET dono = 'Antonia' WHERE id = 5;
+  UPDATE cachorro SET dono = 'Yasmin' WHERE id = 2;
+  UPDATE cachorro SET dono = 'Bebel' WHERE id = 3;
+  UPDATE cachorro SET dono = 'Isaque' WHERE id = 1;
+  UPDATE cachorro SET dono = 'Coringa' WHERE id = 10;
+  
+    DELETE FROM cachorro WHERE idade >=  10;
+
+
+
+
+
+CARRO
+
+CREATE TABLE carro(
+  id integer NOT NULL PRIMARY KEY,
+  nome varchar(250),
+  fabricante varchar(250),
+  cor varchar(250),
+  aro integer(5,2),
+  preco float(5,2),
+  motor Varchar(250),
+  lancamento INT 
+  );
+  SELECT *FROM carro;
+  INSERT INTO carro VALUES(1,'Gol', 'Volkswagen ', 'vermelho', 10, 1800, 'v12', '2024');
+  INSERT INTO carro VALUES(2,'Uno', 'Fiat', 12.5, 23.1, 7, 'Pit Bull');
+  INSERT INTO carro VALUES(3,'Palio', 'General Motors', 18.5, 13.1, 5, 'ChauChau'  );
+  INSERT INTO carro VALUES(4,'Spin', 'Hyundai ', 7.5, 16.1, 2, 'Vira Lata' );
+  INSERT INTO carro VALUES(5,'HB20', 'BMW', 18.5, 20.1, 1, 'Pug');
+  INSERT INTO carro VALUES(6,'Corolla', 'Porche', 20.8, 20.1, 3, 'Border Cooler' );
+  INSERT INTO carro VALUES(7,'Celta', 'Nissan', 16, 20.1, 18, 'Routi Valer' );
+  INSERT INTO carro VALUES(8,'Onix', 'Jeep', 17.5, 19.1, 28, 'Shitzu' );
+  INSERT INTO carro VALUES(9,'Voyage', 'Mercedes', 12.5, 18.1, 13, 'Pastor Alemão' );
+  INSERT INTO carro VALUES(10,'Siena', 'Ferrari', 15.5, 12.1, 58, 'Golden'  );
+  
+  UPDATE carro SET nome = 'Prisma' WHERE id = 4;
+  UPDATE carro SET nome = 'Cobalt ' WHERE id = 7;
+  UPDATE carro SET nome = '458' WHERE id = 5;
+  UPDATE carro SET nome = '911' WHERE id = 2;
+  UPDATE carro SET nome = 'Urus' WHERE id = 3;
+  UPDATE carro SET nome = 'Lamborghini' WHERE id = 1;
+  UPDATE carro SET nome = 'Gol' WHERE id = 10;
+  
+    DELETE FROM carro WHERE aro >=  10;
+    
+ SELECT *FROM carro
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - 
+
+
+---Exercícios 68 E 69
+CREATE TABLE autor(
+	id INTEGER NOT NULL PRIMARY KEY, nome VARCHAR(250), 
+    altura FLOAT(5,2), idade INT  
+);
+INSERT INTO autor VALUES(1, 'Tannebaum', 1.78, 56);
+INSERT INTO autor VALUES(2, 'Al-kaibir', 1.56, 23);
+INSERT INTO autor VALUES(3, 'Toroskovov', 1.9, 41);
+INSERT INTO autor VALUES(4, 'Sun Tzu', 1.61, 18);
+INSERT INTO autor VALUES(5, 'Aitofel', 1.41, 34);
+
+INSERT INTO autor VALUES(1, 'Paula Pimenta', 1.78, 56);
+INSERT INTO autor VALUES(2, 'Machado de Assis', 1.56, 23);
+INSERT INTO autor VALUES(3, 'Clarice Lispector', 1.9, 41);
+INSERT INTO autor VALUES(4, 'Luis de Camões', 1.61, 18);
+INSERT INTO autor VALUES(5, 'Mauricio de Souza', 1.41, 34);
+
+SELECT ROUND(SQRT(CEIL(altura)),2) from autor;
+SELECT CONCAT(nome, ' ', idade) FROM autor;
+--SELECT SUBSTRING(nome FROM inicio FOR comprimento) FROM tabela;
+SELECT UPPER(nome) FROM autor;
+SELECT LOWER(nome) FROM autor;
+
+CREATE TABLE editora(
+	id INTEGER NOT NULL PRIMARY KEY, nome VARCHAR(250), 
+    renda FLOAT(5,2), colaborador INT  
+);
+INSERT INTO editora VALUES(1, 'Saber e Conhecer', 1500000, 30);
+INSERT INTO editora VALUES(2, 'Sagah+', 356000, 12);
+INSERT INTO editora VALUES(3, 'Aprender e cia', 11000000, 50);
+INSERT INTO editora VALUES(4, 'Education Solution', 150000, 8);
+INSERT INTO editora VALUES(5, 'Conhecimento e Luz', 500000, 17);
+SELECT *FROM editora;
+
+CREATE TABLE livro(
+	id INTEGER NOT NULL PRIMARY KEY, titulo VARCHAR(250), 
+    valor FLOAT(5,2), id_autor INT, id_editora INT,
+    FOREIGN KEY(id_autor) REFERENCES autor(id),
+    FOREIGN KEY(id_editora) REFERENCES editora(id)
+);
+INSERT INTO livro VALUES(1, 'Assim falava Zaratrusta', 30.50, 1, 2);
+INSERT INTO livro VALUES(2, 'A arte da guerra', 20.7, 4, 3);
+INSERT INTO livro VALUES(3, 'O último Teorema de Fermat', 50, 5, 1);
+INSERT INTO livro VALUES(4, 'O segredo da maçonaria', 35.33, 2, 2);
+INSERT INTO livro VALUES(5, 'Deus e os astronautas', 30.50, 3, 4);
+INSERT INTO livro VALUES(6, 'Romeu e Julieta', 32.50, 4, 5);
+SELECT *FROM livro
+
+
+SELECT titulo, valor from livro WHERE id > 2;--pegar o nome e valor dos livros com id maior que 2
+SELECT MAX(valor) AS MaiorValor from livro;
+SELECT MIN(valor) AS MenorValor from livro;
+SELECT AVG(valor) AS MediaValor from livro;
+SELECT COUNT(valor) AS QuantidadeValor from livro;
+SELECT DISTINCT(valor) AS ValorUnico from livro;
+
+SELECT a.nome, a.idade from livro AS l, autor as a, editora as e 
+WHERE a.id = l.id_autor AND l.id_editora = e.id AND e.nome = 'Conhecimento e Luz';
+
+SELECT *FROM livro;
+SELECT count(*) from autor as , livro as l where a.id = l.id_autor AND l.id = 2;
+
+SELECT *FROM livro
+
+SELECT * FROM autor where idade > 30 OR altura > 1.8;
+SELECT * FROM autor where not(idade > 23);
+SELECT ROUND(altura * idade,2) FROM autor WHERE id > 2;
+SELECT altura + idade FROM autor;
+SELECT altura * idade FROM autor;
+SELECT ROUND(altura / idade,2) FROM autor;
+SELECT (idade % 2) as resto FROM autor where id = 2;
+SELECT id FROM autor where id >= 2;
+
+SELECT id FROM autor where id BETWEEN 2 AND 5;
+SELECT nome FROM editora WHERE id = 5;
+
+- - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - 
+
+---Exercícios 74 E 75
+CREATE TABLE autor(
+	id INTEGER NOT NULL PRIMARY KEY, nome VARCHAR(250), 
+    altura FLOAT(5,2), idade INT, nacionalidade varchar(250)
+);
+
+INSERT INTO autor VALUES(1, 'Tannebaum', 1.78, 'Estadunidense');
+INSERT INTO autor VALUES(2, 'Al-kaibir', 1.56,  'Arabe');
+INSERT INTO autor VALUES(3, 'Toroskovov', 1.9,  'russo');
+INSERT INTO autor VALUES(4, 'Sun Tzu', 1.61,  'chines');
+INSERT INTO autor VALUES(5, 'Aitofel', 1.41,  'Hebreu');
+INSERT INTO autor VALUES(6, 'Tiago', 1.65,  'Brasileiro');
+INSERT INTO autor VALUES(7, 'Caua', 1.56,  'Brasileiro');
+INSERT INTO autor VALUES(8, 'Xi Jinping', 1.8,  'chines');
+INSERT INTO autor VALUES(9, 'Dijkstra', 1.77,  'Indiano');
+INSERT INTO autor VALUES(10, 'Mahalanobis', 1.41, 'Indiano');
+INSERT INTO autor VALUES(11, 'Ramanujan', 1.31,  'Indiano2');
+Select *from autor;
+
+select a.nacionalidade, count(*) as quantidade, ROUND(AVG(a.idade),2) as media
+from autor as a
+group by a.nacionalidade
+having SUM(a.idade) > 60;
+
+SELECT ROUND(SQRT(CEIL(altura)),2) from autor;
+SELECT CONCAT(nome, ' ', idade) FROM autor;
+--SELECT SUBSTRING(nome FROM inicio FOR comprimento) FROM tabela;
+SELECT UPPER(nome) FROM autor;
+SELECT LOWER(nome) FROM autor;
+
+CREATE TABLE editora(
+	id INTEGER NOT NULL PRIMARY KEY, nome VARCHAR(250), 
+    renda FLOAT(5,2), colaborador INT  
+);
+INSERT INTO editora VALUES(1, 'Saber e Conhecer', 1500000, 30);
+INSERT INTO editora VALUES(2, 'Sagah+', 356000, 12);
+INSERT INTO editora VALUES(3, 'Aprender e cia', 11000000, 50);
+INSERT INTO editora VALUES(4, 'Education Solution', 150000, 8);
+INSERT INTO editora VALUES(5, 'Conhecimento e Luz', 500000, 17);
+INSERT INTO editora VALUES(6, 'Adapt Educação', 50000, 12);
+INSERT INTO editora VALUES(7, 'Abdruschin o sábio', 87000, 15);
+SELECT *FROM editora;
+
+CREATE TABLE livro(
+	id INTEGER NOT NULL PRIMARY KEY, titulo VARCHAR(250), 
+    valor FLOAT(5,2), id_autor INT, id_editora INT,
+    FOREIGN KEY(id_autor) REFERENCES autor(id),
+    FOREIGN KEY(id_editora) REFERENCES editora(id)
+);
+INSERT INTO livro VALUES(1, 'Assim falava Zaratrusta', 30.50, 1, 2);
+INSERT INTO livro VALUES(2, 'A arte da guerra', 20.7, 4, 3);
+INSERT INTO livro VALUES(3, 'O último Teorema de Fermat', 50, 5, 1);
+INSERT INTO livro VALUES(4, 'O segredo da maçonaria', 35.33, 2, 2);
+INSERT INTO livro VALUES(5, 'Deus e os astronautas', 30.50, 3, 4);
+INSERT INTO livro VALUES(6, 'Inferno - Dan Brown', 180.87, 6 4);
+INSERT INTO livro VALUES(7, 'Bíblia sagrada', 50, 4, 3);
+INSERT INTO livro VALUES(8, 'Alcorão', 60, 2, 4);
+INSERT INTO livro VALUES(9, 'Universo Racional', 200, 6, 7);
+INSERT INTO livro VALUES(10, 'Entre anjos e demônios', 75.77, 1, 5);
+SELECT *FROM livro;
+
+Select a.nome, a.idade, a.altura
+from autor AS a
+order by a.nome asc;
+
+
+--pegar o nome e valor dos livros com id maior que 2
+SELECT titulo, valor from livro WHERE id > 2;
+---1 QUESTAO
+SELECT MAX(valor) AS MaiorValor from livro;
+SELECT MIN(valor) AS MenorValor from livro;
+SELECT AVG(valor) AS MediaValor from livro;
+SELECT COUNT(valor) AS QuantidadeValor from livro;
+SELECT DISTINCT(valor) AS ValorUnico from livro;
+--4 QUESTAO
+SELECT SUM(valor) AS MediaValor from livro;
+
+
+SELECT id from livro AS l, autor as a 
+WHERE l.id_autor = a.id AND a.nome = 'Tannebaum';
+
+
+SELECT * FROM autor where idade > 30 OR altura > 1.8;
+SELECT * FROM autor where not(idade > 23);
+SELECT ROUND(altura * idade,2) FROM autor WHERE id > 2;
+SELECT altura + idade FROM autor;
+SELECT altura * idade FROM autor;
+SELECT ROUND(altura / idade,2) FROM autor;
+SELECT (idade % 2) as resto FROM autor where id = 2;
+SELECT id FROM autor where id >= 2;
+SELECT id FROM autor where id BETWEEN 2 AND 5;
+
+--1 QUESTAO - Selecione o preço máximo de todos os livros na tabela. 
+SELECT MAX(valor) from livro;
+
+--2 QUESTAO - Liste todos os autores distintos da tabela. 
+SELECT DISTINCT(nome) FROM autor;
+
+---3 QUESTAO - Conte quantos livros estão na tabela. 
+SELECT COUNT(id) FROM livro;
+
+--4 QUESTAO - Calcule a soma total dos preços dos livros. 
+SELECT SUM(valor) FROM livro;
+
+--5 QUESTAO - Liste o nome dos autores e a média dos preços de seus livros. 
+SELECT a.nome, AVG(l.valor) as media from autor as a, livro as l group by a.nome having a.id = l.id_autor;
+
+--6 QUESTAO - Apresente os nomes e idades dos três autores mais velhos.
+SELECT 
+
+
+;
